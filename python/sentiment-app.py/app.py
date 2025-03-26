@@ -2,10 +2,9 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from transformers import pipeline
 
-# Load emotion detection model (GoEmotions by Google)
+
 emotion_pipeline = pipeline("text-classification", model="joeddav/distilbert-base-uncased-go-emotions-student", top_k=3)
 
-# Emoji Mapping for Emotions
 emotion_emojis = {
     "admiration": "😍",
     "amusement": "😂",
@@ -37,13 +36,11 @@ emotion_emojis = {
     "neutral": "😐"
 }
 
-# Streamlit UI Config
 st.set_page_config(page_title="Emotion Detector", page_icon="🎭", layout="centered")
 
 st.title("🎭 AI-Powered Emotion Detector")
 st.subheader("Analyze emotions in text using AI!")
 
-# User input
 user_input = st.text_area("Enter text here:", height=100)
 
 if st.button("Analyze Emotions"):
